@@ -1,0 +1,427 @@
+---
+title: "Final Project"
+author: "Andrew Parsons"
+date: "September 19, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(Quandl)
+```
+##### Big thing is that you will need to change the api key to yours whenever you are writing 
+
+#Developed Market
+
+### US 
+###Index
+Quandl("NASDAQOMX/NQUSB", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQUSL", api_key="ZD8hU_zfyaksm86ayy2B")
+### Mid Cap
+Quandl("NASDAQOMX/NQUSM", api_key="ZD8hU_zfyaksm86ayy2B")
+### Small Cap
+Quandl("NASDAQOMX/NQUSS", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+### UK Index
+Quandl("NASDAQOMX/NQGB", api_key="ZD8hU_zfyaksm86ayy2B")
+### UK Large Cap 
+Quandl("NASDAQOMX/NQGBLC", api_key="ZD8hU_zfyaksm86ayy2B") 
+### UK Mid cap 
+Quandl("NASDAQOMX/NQGBMC", api_key="ZD8hU_zfyaksm86ayy2B") 
+### UK Small cap 
+Quandl("NASDAQOMX/NQGBSC", api_key="ZD8hU_zfyaksm86ayy2B")
+
+### Hong Kong 
+### Index
+Quandl("NASDAQOMX/NQHKHKD", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQHKLCHKD", api_key="ZD8hU_zfyaksm86ayy2B")
+### Mid Cap
+Quandl("NASDAQOMX/NQHKMCHKD", api_key="ZD8hU_zfyaksm86ayy2B")
+### Small Cap
+Quandl("NASDAQOMX/NQHKSCHKD", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+### Israel 
+### Index
+Quandl("NASDAQOMX/NQIL", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQILLM", api_key="ZD8hU_zfyaksm86ayy2B") 
+### Mid Cap
+Quandl("NASDAQOMX/NQILMC", api_key="ZD8hU_zfyaksm86ayy2B") 
+### Small Cap
+Quandl("NASDAQOMX/NQILSC", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+#Emerging Market
+
+### Mexico 
+### Index
+Quandl("NASDAQOMX/NQMX", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQMXLC", api_key="ZD8hU_zfyaksm86ayy2B")
+### Mid Cap
+Quandl("NASDAQOMX/NQMXMC", api_key="ZD8hU_zfyaksm86ayy2B")
+### Small Cap
+Quandl("NASDAQOMX/NQMXSC", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+### Russian 
+### Index
+Quandl("NASDAQOMX/NQRU", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQRULC", api_key="ZD8hU_zfyaksm86ayy2B)
+### Mid Cap
+Quandl("NASDAQOMX/NQRUMC", api_key="ZD8hU_zfyaksm86ayy2B")
+### Small Cap
+Quandl("NASDAQOMX/NQRUSC", api_key="ZD8hU_zfyaksm86ayy2B"
+
+### China 
+### Index
+Quandl("NASDAQOMX/NQCNCNY", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQCNLCCNY", api_key="ZD8hU_zfyaksm86ayy2B")
+### Mid Cap
+Quandl("NASDAQOMX/NQCNMCCNY", api_key="ZD8hU_zfyaksm86ayy2B")
+### Small Cap
+Quandl("NASDAQOMX/NQCNSCCNY", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+### Egypt 
+### Index
+Quandl("NASDAQOMX/NQEGEGP", api_key="ZD8hU_zfyaksm86ayy2B")
+### Large Cap
+Quandl("NASDAQOMX/NQEGLMEGP", api_key="ZD8hU_zfyaksm86ayy2B") 
+### Mid cap
+Quandl("NASDAQOMX/NQEGMCEGP", api_key="ZD8hU_zfyaksm86ayy2B")
+### Small Cap
+Quandl("NASDAQOMX/NQEGSCEGP", api_key="ZD8hU_zfyaksm86ayy2B"
+
+
+### Gold and Precious Medals
+Quandl("NASDAQOMX/QGLD", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+### Oil and Gas
+Quandl("NASDAQOMX/NQG0001", api_key="ZD8hU_zfyaksm86ayy2B")
+
+### Global Agriculture 
+Quandl("NASDAQOMX/QAGR", api_key="ZD8hU_zfyaksm86ayy2B")
+
+
+### Examples:
+### Here I was just attributing a certain amount of data to UK1
+```{r}
+UK1 <- Quandl("NASDAQOMX/NQGB", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+```
+
+
+### This was just to check the first two columns of NQGB
+```{r}
+Quandl("NASDAQOMX/NQGB", api_key="ZD8hU_zfyaksm86ayy2B", column_index = '1')
+```
+
+
+```{r}
+ggplot(data = UK1) +
+  geom_line(aes(x = as.Date(UK1$`Trade Date`), 
+                y = as.numeric(UK1$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+  
+```
+
+```{r}
+RU1 <- Quandl("NASDAQOMX/NQRU", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+```
+
+
+Russian line graph
+```{r}
+ggplot(data = RU1) +
+  geom_line(aes(x = as.Date(RU1$`Trade Date`), 
+                y = as.numeric(RU1$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8))
+```
+
+
+### Need to create  a data fram enclosing both to actually put them both on a plot
+
+
+```{r}
+test_data <- data.frame(UK1,RU1
+)
+```
+
+
+### Tested to get the first 6 trems of the new data fram set
+
+
+```{r}
+head(test_data)
+```
+
+### Utilizing the data frame was able to plot both lines on the same graph
+
+
+```{r}
+ggplot(data = test_data) +
+  geom_line(aes(x = as.Date(RU1$`Trade Date`), 
+                y = as.numeric(RU1$`Index Value`)
+                ), 
+            color = "red"
+            ) +
+  geom_line(aes(x = as.Date(UK1$`Trade Date`), 
+                y = as.numeric(UK1$`Index Value`)
+                ),
+            color = "blue"
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+
+Hong Kong
+```{r}
+# index
+HKindex <- Quandl("NASDAQOMX/NQHKHKD", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+
+### Large Cap
+HKlarge <- Quandl("NASDAQOMX/NQHKLCHKD", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+
+### Mid Cap
+HKmid <- Quandl("NASDAQOMX/NQHKMCHKD", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+
+### Small Cap
+HKsmall <- Quandl("NASDAQOMX/NQHKSCHKD", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+```
+
+
+Hong Kong Index
+```{r}
+ggplot(data = HKindex) +
+  geom_line(aes(x = as.Date(HKindex$`Trade Date`), 
+                y = as.numeric(HKindex$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+Hong Kong Large
+```{r}
+ggplot(data = HKlarge) +
+  geom_line(aes(x = as.Date(HKlarge$`Trade Date`), 
+                y = as.numeric(HKlarge$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+Hong Kong Mid
+```{r}
+ggplot(data = HKmid) +
+  geom_line(aes(x = as.Date(HKmid$`Trade Date`), 
+                y = as.numeric(HKmid$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+Hong Kong Small
+```{r}
+ggplot(data = HKsmall) +
+  geom_line(aes(x = as.Date(HKsmall$`Trade Date`), 
+                y = as.numeric(HKsmall$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+Combined Hong Kong Data Frame
+```{r}
+HK_index_caps <- data.frame(HKindex, HKlarge, HKmid, HKsmall)
+```
+
+Combined Hong Kong Graphs
+```{r}
+ggplot(data = HK_index_caps) +
+  geom_line(aes(x = as.Date(HKindex$`Trade Date`), 
+                y = as.numeric(HKindex$`Index Value`)
+                ), 
+            color = "black"
+            ) +
+  geom_line(aes(x = as.Date(HKlarge$`Trade Date`), 
+                y = as.numeric(HKlarge$`Index Value`)
+                ),
+            color = "blue"
+            ) +
+  geom_line(aes(x = as.Date(HKmid$`Trade Date`), 
+                y = as.numeric(HKmid$`Index Value`)
+                ),
+            color = "green"
+            ) +
+  geom_line(aes(x = as.Date(HKsmall$`Trade Date`), 
+                y = as.numeric(HKsmall$`Index Value`)
+                ),
+            color = "red"
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+
+
+
+
+
+
+
+
+China
+```{r}
+### Index
+CHindex <- Quandl("NASDAQOMX/NQCNCNY", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+
+### Large Cap
+CHlarge <- Quandl("NASDAQOMX/NQCNLCCNY", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+
+### Mid Cap
+CHmid <- Quandl("NASDAQOMX/NQCNMCCNY", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+
+### Small Cap
+CHsmall <- Quandl("NASDAQOMX/NQCNSCCNY", api_key="ZD8hU_zfyaksm86ayy2B", start_date='2017-01-01', end_date='2018-01-01')
+```
+
+China Index
+```{r}
+ggplot(data = CHindex) +
+  geom_line(aes(x = as.Date(CHindex$`Trade Date`), 
+                y = as.numeric(CHindex$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+China Large Cap
+```{r}
+ggplot(data = CHlarge) +
+  geom_line(aes(x = as.Date(CHlarge$`Trade Date`), 
+                y = as.numeric(CHlarge$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+China Mid Cap
+```{r}
+ggplot(data = CHmid) +
+  geom_line(aes(x = as.Date(CHmid$`Trade Date`), 
+                y = as.numeric(CHmid$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+China Small Cap
+```{r}
+ggplot(data = CHsmall) +
+  geom_line(aes(x = as.Date(CHsmall$`Trade Date`), 
+                y = as.numeric(CHsmall$`Index Value`)
+                )
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 0.8)
+)
+```
+
+China Combined Data Frame
+```{r}
+CH_index_caps <- data.frame(CHindex, CHlarge, CHmid, CHsmall)
+```
+
+China Combined Graphs
+```{r}
+ggplot(data = CH_index_caps) +
+  geom_line(aes(x = as.Date(CHindex$`Trade Date`), 
+                y = as.numeric(CHindex$`Index Value`)
+                ), 
+            color = "black"
+            ) +
+  geom_line(aes(x = as.Date(CHlarge$`Trade Date`), 
+                y = as.numeric(CHlarge$`Index Value`)
+                ),
+            color = "blue"
+            ) +
+  geom_line(aes(x = as.Date(CHmid$`Trade Date`), 
+                y = as.numeric(CHmid$`Index Value`)
+                ),
+            color = "green"
+            ) +
+  geom_line(aes(x = as.Date(CHsmall$`Trade Date`), 
+                y = as.numeric(CHsmall$`Index Value`)
+                ),
+            color = "red"
+            ) +
+  scale_x_date(date_breaks = "1 month") +
+  labs(x = "Months",
+       y = "Index Value") +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+
+
+
+
+
+
+
